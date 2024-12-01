@@ -15,7 +15,7 @@ import java.util.stream.StreamSupport;
 
 public class Main {
     public static void main(String[] args) {
-        String filePath = "D:\\pwio3\\Airbnb_Open_Data.csv";
+        String filePath = "Airbnb_Open_Data.csv";;
         List<String[]> rows = new ArrayList<>();
         try {
             CSVReader reader = new CSVReader(new FileReader(filePath));

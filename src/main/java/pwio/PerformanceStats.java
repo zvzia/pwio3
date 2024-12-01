@@ -14,7 +14,7 @@ public class PerformanceStats {
 
 
     public static void main(String[] args) {
-        String filePath = "D:\\Studia\\sem9\\pwio\\proj\\Airbnb_Open_Data.csv";
+        String filePath = "Airbnb_Open_Data.csv";
 
         List<String[]> rows = new ArrayList<>();
         try {
@@ -81,7 +81,7 @@ public class PerformanceStats {
             );
         });*/
 
-        System.out.println((end - start) / 1000000 + " milliseconds");
+        //System.out.println((end - start) / 1000000 + " milliseconds");
         return end - start;
     }
 }
