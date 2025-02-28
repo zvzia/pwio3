@@ -23,8 +23,14 @@ public class Main {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        long start = System.nanoTime();
+
+        /*List<String[]> multipliedRows = new ArrayList<>();
+        for (int i = 0; i < 10; i++) {
+            multipliedRows.addAll(rows);
+        }*/
+
         Stream<String[]> rowsStream = rows.parallelStream();
+        long start = System.nanoTime();
         Map<String, Map<String, Long>> listingsCount = rowsStream.skip(1)
                 .filter(row -> {
                     try {
@@ -34,7 +40,7 @@ public class Main {
                     }
                 })
                 .filter(row -> !Objects.equals(row[CsvConst.NEIGHBOURHOOD_GROUP], "") && !Objects.equals(row[CsvConst.NEIGHBOURHOOD], ""))
-                .map(row -> new AbstractMap.SimpleEntry<>(row[CsvConst.NEIGHBOURHOOD_GROUP], row[CsvConst.NEIGHBOURHOOD]))
+                .map( row -> new AbstractMap.SimpleEntry<>(row[CsvConst.NEIGHBOURHOOD_GROUP], row[CsvConst.NEIGHBOURHOOD]))
                 .sorted((o1, o2) -> {
                     int keyCompare = o2.getKey().compareTo(o1.getKey());
                     return keyCompare == 0 ? o1.getValue().compareTo(o2.getValue()) : keyCompare;
